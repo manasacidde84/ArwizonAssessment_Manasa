@@ -17,7 +17,6 @@ public class TestAmazon {
 
 	public static void main(String[] args) {
 
-
 		Scanner scn = new Scanner(System.in);
 		Set<Product> l = new HashSet<Product>();
 		AdminInterface ad = new AdminInterfaceImpl();

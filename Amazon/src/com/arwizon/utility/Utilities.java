@@ -16,6 +16,7 @@ public class Utilities {
 		}
 	}
 	
+	
 	public static void validatediscount(String discount) throws ProductException {
 		String Pattern = "[0-9]{2}";
 		if(!discount.matches(Pattern)) {

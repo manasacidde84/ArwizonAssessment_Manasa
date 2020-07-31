@@ -62,6 +62,7 @@ public class AdminInterfaceImpl implements AdminInterface{
 		return p;
 	}
 
+	
 	@Override
 	public void update(int productId, int noOfUnits, Set<Product> p) {
 		for(Product pro:p) {

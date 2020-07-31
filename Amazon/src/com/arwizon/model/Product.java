@@ -104,6 +104,7 @@ public class Product implements Comparable<Product> {
 				+ price + ", manufacturerName=" + manufacturerName + ", discount=" + discount + ", imgUrl=" + imgUrl
 				+ ", noOfUnits=" + noOfUnits + ", category=" + category + "]";
 	}
+	
 
 	@Override
 	public int compareTo(Product p) {
