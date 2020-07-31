@@ -17,7 +17,7 @@ public class TestAmazon {
 
 	public static void main(String[] args) {
 
-		
+
 		Scanner scn = new Scanner(System.in);
 		Set<Product> l = new HashSet<Product>();
 		AdminInterface ad = new AdminInterfaceImpl();
@@ -138,17 +138,17 @@ public class TestAmazon {
 					} catch (Exception e) {
 						System.out.println(e.getMessage());
 					}
-
 				}
 
 
 				AdminInterface  a = new AdminInterfaceImpl();
 				Product p = a.addProduct(name,description,price1,manufacturerName,discount1,imgUrl,noOfUnits1,category);
 				l.add(p);
-				
-		
+				System.out.println("Product Added Successfully");
+
+
 				break;
-				
+
 			case 2:
 
 				for(Product pro:l) {
@@ -159,30 +159,14 @@ public class TestAmazon {
 
 			case 3:
 
-				//				System.out.println("please enter product name");
-				//				String name1=scn.next();
-				//				AdminInterface ad = new AdminInterfaceImpl();
-				//				Product[] product = ad.search(name1,arr);
-				//				if(product[0]==null) {
-				//					System.out.println("product not found");
-				//				}
-				//				else {
-				//					for(Product pro:product) {
-				//						if(pro==null) {
-				//							break;
-				//						}else {
-				//							System.out.println(pro);
-				//						}
-				//					}
-				//				}
-
 				System.out.println("please enter product name");
 				String name1=scn.next();
-				
+
 				Set<Product> product = ad.searchProduct(name1,l);
 				if(product.size()==0) {
 					System.out.println("Product not found");
 				}else {
+					System.out.println("Product Found");
 					for(Product p1:product) {
 						System.out.println(p1);
 					}
@@ -190,7 +174,7 @@ public class TestAmazon {
 
 
 				break;
-				
+
 			case 4:
 				System.out.println("Enter Product Id");
 				String proId = scn.next();
@@ -202,24 +186,22 @@ public class TestAmazon {
 
 				break;
 
-				
+
 			case 5:
 				System.out.println("Enter Product Id");
 				String productId = scn.next();
 				int productId1 = Integer.parseInt(productId);
 				l =ad.delete(productId1, l);
-				
+
 				for(Product p2:l) {
 					System.out.println(p2);
 				}
-				
+
 				break;
 
 			default:
 
 				System.out.println("Invalid option");
-
-
 
 			}
 		}
