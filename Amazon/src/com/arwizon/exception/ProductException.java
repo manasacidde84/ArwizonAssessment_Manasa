@@ -10,5 +10,6 @@ public class ProductException extends Exception{
 	public String getMessage() {
 		return detailMsg;
 	}
+	
 
 }

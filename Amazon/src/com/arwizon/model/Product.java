@@ -12,11 +12,7 @@ public class Product implements Comparable<Product> {
 	private int noOfUnits;
 	private String category;
 	
-	private static int count=1;
-	
-	public Product() {
-		count++;
-	}
+
 
 	public int getProductId() {
 		return productId;
@@ -90,13 +86,6 @@ public class Product implements Comparable<Product> {
 		this.category = category;
 	}
 
-	public static int getCount() {
-		return count;
-	}
-
-	public static void setCount(int count) {
-		Product.count = count;
-	}
 
 	@Override
 	public String toString() {
@@ -106,6 +95,7 @@ public class Product implements Comparable<Product> {
 	}
 	
 
+	
 	@Override
 	public int compareTo(Product p) {
 		if(this.getName().compareTo(p.getName())>0)

@@ -11,6 +11,7 @@ import java.util.TreeSet;
 import com.arwizon.model.Product;
 import com.arwizon.service.AdminInterface;
 import com.arwizon.service.AdminInterfaceImpl;
+import com.arwizon.utility.ConnectionDB;
 import com.arwizon.utility.Utilities;
 
 public class TestAmazon {
@@ -18,7 +19,6 @@ public class TestAmazon {
 	public static void main(String[] args) {
 
 		Scanner scn = new Scanner(System.in);
-		Set<Product> l = new HashSet<Product>();
 		AdminInterface ad = new AdminInterfaceImpl();
 
 		while(true) {
@@ -141,16 +141,17 @@ public class TestAmazon {
 
 
 				AdminInterface  a = new AdminInterfaceImpl();
-				Product p = a.addProduct(name,description,price1,manufacturerName,discount1,imgUrl,noOfUnits1,category);
-				l.add(p);
+				a.addProduct(name,description,price1,manufacturerName,discount1,imgUrl,noOfUnits1,category);
+
 				System.out.println("Product Added Successfully");
 
 
 				break;
 
 			case 2:
+				Set<Product> s = ad.DisplayAllProducts();
 
-				for(Product pro:l) {
+				for(Product pro:s) {
 					System.out.println(pro);
 				}
 
@@ -161,7 +162,7 @@ public class TestAmazon {
 				System.out.println("please enter product name");
 				String name1=scn.next();
 
-				Set<Product> product = ad.searchProduct(name1,l);
+				Set<Product> product= ad.searchProduct(name1);
 				if(product.size()==0) {
 					System.out.println("Product not found");
 				}else {
@@ -181,7 +182,8 @@ public class TestAmazon {
 				System.out.println("Enter your Updated No Of Units");
 				String units = scn.next();
 				int units1 = Integer.parseInt(units);
-				ad.update(productId2, units1, l);
+				ad.updateProduct(productId2, units1);
+				System.out.println("Units Updated Successfully");
 
 				break;
 
@@ -190,12 +192,8 @@ public class TestAmazon {
 				System.out.println("Enter Product Id");
 				String productId = scn.next();
 				int productId1 = Integer.parseInt(productId);
-				l =ad.delete(productId1, l);
-
-				for(Product p2:l) {
-					System.out.println(p2);
-				}
-
+				ad.deleteProduct(productId1);
+				System.out.println("Product Deleted Successfully");
 				break;
 
 			default:
@@ -204,7 +202,6 @@ public class TestAmazon {
 
 			}
 		}
-
 
 	}
 
